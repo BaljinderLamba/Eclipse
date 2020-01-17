@@ -1,0 +1,31 @@
+package firstdriver;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Elements {
+
+
+ public static void main(String[] args) {
+	 //TODO Auto-generated method stub
+	 
+	 System.setProperty("webdriver.chrome.driver", "C:\\Users\\1895211\\Desktop\\college\\chromedriver_win32\\chromedriver.exe");
+     String baseUrl = "http://matrixprojects.ca/";
+	  WebDriver driver = new ChromeDriver();
+	  
+	  driver.get(baseUrl);
+	  driver.findElement(By.linkText("Login")).click();
+	  
+	  List<WebElement> input = driver.findElements(By.tagName("input"));
+	  System.out.println("number of element"+ input.size());
+	  
+	  for (int i = 0; i < input.size()-1; i++) {
+		  input.get(i).click();
+		  input.get(i).sendKeys("team5");
+	  }
+	  
+ }}
